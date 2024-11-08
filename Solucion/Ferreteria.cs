@@ -7,7 +7,7 @@ namespace Solucion
         
         public Ferreteria(double anchoInicial, double largoInicial, double precioBase)
         {
-
+            
         }
 
         
