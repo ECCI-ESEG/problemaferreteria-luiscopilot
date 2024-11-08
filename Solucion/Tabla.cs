@@ -62,5 +62,15 @@ namespace Solucion
             return this.precio;
         }
 
+        public bool esMasGrande(Tabla tabla)
+        {
+            if (this.ancho > tabla.ancho)
+            {
+                return true;
+            }
+
+            return this.ancho == tabla.ancho && this.largo > tabla.largo;
+        }
+
     }
 }
