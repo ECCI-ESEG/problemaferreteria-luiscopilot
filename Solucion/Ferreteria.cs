@@ -65,16 +65,5 @@ namespace Solucion
 
             return tablasCortadasBase[0].getPrecio();
         }
-
-        private double cortarTablas(Tabla tabla, double anchoSolicitado, double largoSolicitado)
-        {
-            List<Tabla> tablasCortadas = tabla.cortarTabla(anchoSolicitado, largoSolicitado);
-            if (tablasCortadas.Count == 2)
-            {
-                this.almacen.agregarTabla(tablasCortadas[1]);
-            }
-            this.almacen.ordenarAlmacen();
-            return tablasCortadas[0].getPrecio();
-        }
     }
 }
