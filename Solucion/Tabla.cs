@@ -42,19 +42,27 @@ namespace Solucion
             return tablas;
         }
 
+        public void calcularPrecio()
+        {
+            this.precio = this.largo * this.ancho * this.precioBase;
+        }
         public void setAncho(double ancho)
         {
             this.ancho = ancho;
         }
 
+        public double getAncho()
+        {
+            return this.ancho;
+        }
         public void setLargo(double largo)
         {
             this.largo = largo;
         }
 
-        public void calcularPrecio()
+        public double getLargo()
         {
-            this.precio = this.largo * this.ancho * this.precioBase;
+            return this.largo;
         }
 
         public double getPrecio()
@@ -72,5 +80,9 @@ namespace Solucion
             return this.ancho == tabla.ancho && this.largo > tabla.largo;
         }
 
+        public bool puedeCortar(double anchoSolicitado, double largoSolicitado)
+        {
+            return anchoSolicitado <= this.ancho && largoSolicitado <= this.largo;
+        }
     }
 }

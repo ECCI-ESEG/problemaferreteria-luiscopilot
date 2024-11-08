@@ -21,6 +21,16 @@ namespace Solucion
             this.tablas.Add(tabla);
         }
 
+        public void eliminarTabla(Tabla tabla)
+        {
+            this.tablas.Remove(tabla);
+        }
+
+        public List<Tabla> getTablas()
+        {
+            return this.tablas;
+        }
+
         public void ordenarAlmacen() 
         {
             this.tablas.Sort((t1, t2) =>
