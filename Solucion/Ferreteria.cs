@@ -31,7 +31,12 @@ namespace Solucion
             // Intente cortar o si ya la tiene retorne esa
             foreach (var tabla in this.almacen.getTablas())
             {
-                if (tabla.puedeCortar(anchoSolicitado, largoSolicitado))
+                if (tabla.getAncho() == anchoSolicitado && tabla.getLargo() == largoSolicitado)
+                {
+                    this.almacen.eliminarTabla(tabla);
+                    return tabla.getPrecio();
+                } 
+                else if (tabla.puedeCortar(anchoSolicitado, largoSolicitado))
                 {
                     List<Tabla> tablasCortadas = tabla.cortarTabla(anchoSolicitado, largoSolicitado);
                     
@@ -59,6 +64,17 @@ namespace Solucion
 
 
             return tablasCortadasBase[0].getPrecio();
+        }
+
+        private double cortarTablas(Tabla tabla, double anchoSolicitado, double largoSolicitado)
+        {
+            List<Tabla> tablasCortadas = tabla.cortarTabla(anchoSolicitado, largoSolicitado);
+            if (tablasCortadas.Count == 2)
+            {
+                this.almacen.agregarTabla(tablasCortadas[1]);
+            }
+            this.almacen.ordenarAlmacen();
+            return tablasCortadas[0].getPrecio();
         }
     }
 }
